@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2FCD0563-68AC-4D7B-83F3-0AE7A5A2C14F}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>EpamTask3</RootNamespace>
-    <AssemblyName>EpamTask3</AssemblyName>
+    <ProjectGuid>{4EDED873-E225-4BE3-97BC-A74309DDF7A4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ATE</RootNamespace>
+    <AssemblyName>ATE</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -35,6 +33,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,16 +43,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Enums\CallType.cs" />
+    <Compile Include="Enums\CallState.cs" />
+    <Compile Include="Enums\PortState.cs" />
+    <Compile Include="Events\AnswerEvent.cs" />
+    <Compile Include="Events\CallEvent.cs" />
+    <Compile Include="Events\EndCallEvent.cs" />
+    <Compile Include="Events\ICallingEvent.cs" />
+    <Compile Include="Models\Classes\ATE.cs" />
+    <Compile Include="Models\Classes\CallInfo.cs" />
+    <Compile Include="Models\Classes\Port.cs" />
+    <Compile Include="Models\Classes\Subscriber.cs" />
+    <Compile Include="Models\Classes\Tariff.cs" />
+    <Compile Include="Models\Classes\Terminal.cs" />
+    <Compile Include="Models\Interfaces\IATE.cs" />
+    <Compile Include="Models\Interfaces\IContract.cs" />
+    <Compile Include="Models\Interfaces\IInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ATE\ATE.csproj">
-      <Project>{4EDED873-E225-4BE3-97BC-A74309DDF7A4}</Project>
-      <Name>ATE</Name>
+    <ProjectReference Include="..\BillingSystem\BillingSystem.csproj">
+      <Project>{e73652c7-4519-4b4b-abea-181bc4c25fd9}</Project>
+      <Name>BillingSystem</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
