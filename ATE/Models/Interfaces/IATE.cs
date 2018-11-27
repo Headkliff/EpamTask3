@@ -1,5 +1,7 @@
 ﻿using ATE.Events;
 using ATE.Models.Classes;
+using BillingSystem.Models.Classes;
+using BillingSystem.Models.Interfaces;
 
 namespace ATE.Models.Interfaces
 {

@@ -1,6 +1,6 @@
-﻿using ATE.Models.Classes;
+﻿using BillingSystem.Models.Classes;
 
-namespace ATE.Models.Interfaces
+namespace BillingSystem.Models.Interfaces
 {
     public interface IContract
     {

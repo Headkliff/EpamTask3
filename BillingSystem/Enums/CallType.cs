@@ -1,4 +1,4 @@
-﻿namespace ATE.Enums
+﻿namespace BillingSystem.Enums
 {
     public enum CallType
     {

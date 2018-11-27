@@ -41,6 +41,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\CallType.cs" />
+    <Compile Include="Enums\TariffType.cs" />
+    <Compile Include="Enums\TypeSort.cs" />
+    <Compile Include="Models\Classes\BillingSystem.cs" />
+    <Compile Include="Models\Classes\CallInfo.cs" />
+    <Compile Include="Models\Classes\Contract.cs" />
+    <Compile Include="Models\Classes\Report.cs" />
+    <Compile Include="Models\Classes\ReportRecord.cs" />
+    <Compile Include="Models\Classes\ReportRender.cs" />
+    <Compile Include="Models\Classes\Subscriber.cs" />
+    <Compile Include="Models\Classes\Tariff.cs" />
+    <Compile Include="Models\Interfaces\IBillingSystem.cs" />
+    <Compile Include="Models\Interfaces\IContract.cs" />
+    <Compile Include="Models\Interfaces\IInfo.cs" />
+    <Compile Include="Models\Interfaces\IReportRender.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

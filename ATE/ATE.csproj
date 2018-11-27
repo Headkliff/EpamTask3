@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\CallType.cs" />
     <Compile Include="Enums\CallState.cs" />
     <Compile Include="Enums\PortState.cs" />
     <Compile Include="Events\AnswerEvent.cs" />
@@ -51,14 +50,10 @@
     <Compile Include="Events\EndCallEvent.cs" />
     <Compile Include="Events\ICallingEvent.cs" />
     <Compile Include="Models\Classes\ATE.cs" />
-    <Compile Include="Models\Classes\CallInfo.cs" />
     <Compile Include="Models\Classes\Port.cs" />
-    <Compile Include="Models\Classes\Subscriber.cs" />
     <Compile Include="Models\Classes\Tariff.cs" />
     <Compile Include="Models\Classes\Terminal.cs" />
     <Compile Include="Models\Interfaces\IATE.cs" />
-    <Compile Include="Models\Interfaces\IContract.cs" />
-    <Compile Include="Models\Interfaces\IInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

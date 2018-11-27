@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ATE.Models.Interfaces
+namespace BillingSystem.Models.Interfaces
 {
     public interface IInfo<T>
     {

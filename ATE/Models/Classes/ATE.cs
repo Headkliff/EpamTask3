@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using ATE.Events;
 using ATE.Models.Interfaces;
+using BillingSystem.Models.Classes;
+using BillingSystem.Models.Interfaces;
 
 namespace ATE.Models.Classes
 {
     public class ATE : IATE
     {
         private IDictionary<int, Tuple<Port, IContract>> _usersData;
-        private IList<CallInfo> _callList = new List<CallInfo>();
+        private readonly IList<CallInfo> _callList = new List<CallInfo>();
 
         public ATE()
         {

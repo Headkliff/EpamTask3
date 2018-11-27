@@ -48,43 +48,43 @@ namespace ATE.Models.Classes
             return false;
         }
 
-        protected virtual void RaiseIncomingCallEvent(int number, int targetNumber)
+        protected virtual void RaiseIncomingCallEvent(int number, int calledNumber)
         {
             if (CallPortEvent != null)
             {
-                CallPortEvent(this, new CallEvent(number, targetNumber));
+                CallPortEvent(this, new CallEvent(number, calledNumber));
             }
         }
 
-        protected virtual void RaiseIncomingCallEvent(int number, int targetNumber, Guid id)
+        protected virtual void RaiseIncomingCallEvent(int number, int calledNumber, Guid id)
         {
             if (CallPortEvent != null)
             {
-                CallPortEvent(this, new CallEvent(number, targetNumber, id));
+                CallPortEvent(this, new CallEvent(number, calledNumber, id));
             }
         }
 
-        protected virtual void RaiseAnswerCallEvent(int number, int targetNumber, CallState state)
+        protected virtual void RaiseAnswerCallEvent(int number, int calledNumber, CallState state)
         {
             if (AnswerPortEvent != null)
             {
-                AnswerPortEvent(this, new AnswerEvent(number, targetNumber, state));
+                AnswerPortEvent(this, new AnswerEvent(number, calledNumber, state));
             }
         }
 
-        protected virtual void RaiseAnswerCallEvent(int number, int targetNumber, CallState state, Guid id)
+        protected virtual void RaiseAnswerCallEvent(int number, int calledNumber, CallState state, Guid id)
         {
             if (AnswerPortEvent != null)
             {
-                AnswerPortEvent(this, new AnswerEvent(id, number, targetNumber, state));
+                AnswerPortEvent(this, new AnswerEvent(id, number, calledNumber, state));
             }
         }
 
-        protected virtual void RaiseCallingToEvent(int number, int targetNumber)
+        protected virtual void RaiseCallingToEvent(int number, int calledNumber)
         {
             if (CallEvent != null)
             {
-                CallEvent(this, new CallEvent(number, targetNumber));
+                CallEvent(this, new CallEvent(number, calledNumber));
             }
         }
 
@@ -123,24 +123,24 @@ namespace ATE.Models.Classes
             RaiseEndCallEvent(e.Id, e.TelephoneNumber);
         }
 
-        public void IncomingCall(int number, int targetNumber)
+        public void IncomingCall(int number, int calledNumber)
         {
-            RaiseIncomingCallEvent(number, targetNumber);
+            RaiseIncomingCallEvent(number, calledNumber);
         }
 
-        public void IncomingCall(int number, int targetNumber, Guid id)
+        public void IncomingCall(int number, int calledNumber, Guid id)
         {
-            RaiseIncomingCallEvent(number, targetNumber, id);
+            RaiseIncomingCallEvent(number, calledNumber, id);
         }
 
-        public void AnswerCall(int number, int targetNumber, CallState state)
+        public void AnswerCall(int number, int calledNumber, CallState state)
         {
-            RaiseAnswerCallEvent(number, targetNumber, state);
+            RaiseAnswerCallEvent(number, calledNumber, state);
         }
 
-        public void AnswerCall(int number, int targetNumber, CallState state, Guid id)
+        public void AnswerCall(int number, int calledNumber, CallState state, Guid id)
         {
-            RaiseAnswerCallEvent(number, targetNumber, state, id);
+            RaiseAnswerCallEvent(number, calledNumber, state, id);
         }
     }
 }

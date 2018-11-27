@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ATE.Models.Classes
+namespace BillingSystem.Models.Classes
 {
     public class CallInfo
     {
