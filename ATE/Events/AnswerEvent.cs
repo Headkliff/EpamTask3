@@ -12,17 +12,17 @@ namespace ATE.Events
 
         public AnswerEvent(int number, int target, CallState state)
         {
-            TelephoneNumber = number;
-            CalledTelephoneNumber = target;
-            StateInCall = state;
+            this.TelephoneNumber = number;
+            this.CalledTelephoneNumber = target;
+            this.StateInCall = state;
         }
 
         public AnswerEvent(Guid id, int number, int target, CallState state)
         {
-            Id = id;
-            TelephoneNumber = number;
-            CalledTelephoneNumber = target;
-            StateInCall = state;
+            this.Id = id;
+            this.TelephoneNumber = number;
+            this.CalledTelephoneNumber = target;
+            this.StateInCall = state;
         }
     }
 }

@@ -10,15 +10,15 @@ namespace ATE.Events
 
         public CallEvent(int number, int target)
         {
-            TelephoneNumber = number;
-            CalledTelephoneNumber = target;
+            this.TelephoneNumber = number;
+            this.CalledTelephoneNumber = target;
         }
 
         public CallEvent(int number, int target, Guid id)
         {
-            TelephoneNumber = number;
-            CalledTelephoneNumber = target;
-            Id = id;
+            this.TelephoneNumber = number;
+            this.CalledTelephoneNumber = target;
+            this.Id = id;
         }
     }
 }

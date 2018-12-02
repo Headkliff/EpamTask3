@@ -54,6 +54,10 @@
       <Project>{4EDED873-E225-4BE3-97BC-A74309DDF7A4}</Project>
       <Name>ATE</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BillingSystem\BillingSystem.csproj">
+      <Project>{E73652C7-4519-4B4B-ABEA-181BC4C25FD9}</Project>
+      <Name>BillingSystem</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

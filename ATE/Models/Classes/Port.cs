@@ -37,12 +37,12 @@ namespace ATE.Models.Classes
 
         public bool Disconnect(Terminal terminal)
         {
-            if (State == PortState.Connect)
+            if (this.State == PortState.Connect)
             {
                 State = PortState.Disconnect;
-                terminal.CallEvent += CallingTo;
-                terminal.AnswerEvent += AnswerTo;
-                terminal.EndCallEvent += EndCall;
+                terminal.CallEvent += this.CallingTo;
+                terminal.AnswerEvent += this.AnswerTo;
+                terminal.EndCallEvent += this.EndCall;
                 Flag = false;
             }
             return false;
@@ -50,97 +50,78 @@ namespace ATE.Models.Classes
 
         protected virtual void RaiseIncomingCallEvent(int number, int calledNumber)
         {
-            if (CallPortEvent != null)
-            {
-                CallPortEvent(this, new CallEvent(number, calledNumber));
-            }
+            this.CallPortEvent?.Invoke(this, new CallEvent(number, calledNumber));
         }
 
         protected virtual void RaiseIncomingCallEvent(int number, int calledNumber, Guid id)
         {
-            if (CallPortEvent != null)
-            {
-                CallPortEvent(this, new CallEvent(number, calledNumber, id));
-            }
+            this.CallPortEvent?.Invoke(this, new CallEvent(number, calledNumber, id));
         }
 
         protected virtual void RaiseAnswerCallEvent(int number, int calledNumber, CallState state)
         {
-            if (AnswerPortEvent != null)
-            {
-                AnswerPortEvent(this, new AnswerEvent(number, calledNumber, state));
-            }
+            this.AnswerPortEvent?.Invoke(this, new AnswerEvent(number, calledNumber, state));
         }
 
         protected virtual void RaiseAnswerCallEvent(int number, int calledNumber, CallState state, Guid id)
         {
-            if (AnswerPortEvent != null)
-            {
-                AnswerPortEvent(this, new AnswerEvent(id, number, calledNumber, state));
-            }
+            this.AnswerPortEvent?.Invoke(this, new AnswerEvent(id, number, calledNumber, state));
         }
 
         protected virtual void RaiseCallingToEvent(int number, int calledNumber)
         {
-            if (CallEvent != null)
-            {
-                CallEvent(this, new CallEvent(number, calledNumber));
-            }
+            this.CallEvent?.Invoke(this, new CallEvent(number, calledNumber));
         }
 
         protected virtual void RaiseAnswerToEvent(AnswerEvent eventArgs)
         {
-            if (AnswerEvent != null)
-            {
-                AnswerEvent(this, new AnswerEvent(
+            this.AnswerEvent?.Invoke(
+                this,
+                new AnswerEvent(
                     eventArgs.Id,
                     eventArgs.CalledTelephoneNumber,
                     eventArgs.CalledTelephoneNumber,
                     eventArgs.StateInCall));
-            }
         }
 
-        protected virtual void RaiseEndCallEvent(Guid id, int number)
+        protected virtual void RaiseEndCallEvent(Guid id, int number, int called)
         {
-            if (EndCallEvent != null)
-            {
-                EndCallEvent(this, new EndCallEvent(id, number));
-            }
+            this.EndCallEvent?.Invoke(this, new EndCallEvent(id, number));
         }
 
         private void CallingTo(object sender, CallEvent e)
         {
-            RaiseCallingToEvent(e.TelephoneNumber, e.CalledTelephoneNumber);
+            this.RaiseCallingToEvent(e.TelephoneNumber, e.CalledTelephoneNumber);
         }
 
         private void AnswerTo(object sender, AnswerEvent e)
         {
-            RaiseAnswerToEvent(e);
+            this.RaiseAnswerToEvent(e);
         }
 
         private void EndCall(object sender, EndCallEvent e)
         {
-            RaiseEndCallEvent(e.Id, e.TelephoneNumber);
+            this.RaiseEndCallEvent(e.Id, e.TelephoneNumber, e.CalledTelephoneNumber);
         }
 
         public void IncomingCall(int number, int calledNumber)
         {
-            RaiseIncomingCallEvent(number, calledNumber);
+            this.RaiseIncomingCallEvent(number, calledNumber);
         }
 
         public void IncomingCall(int number, int calledNumber, Guid id)
         {
-            RaiseIncomingCallEvent(number, calledNumber, id);
+            this.RaiseIncomingCallEvent(number, calledNumber, id);
         }
 
         public void AnswerCall(int number, int calledNumber, CallState state)
         {
-            RaiseAnswerCallEvent(number, calledNumber, state);
+            this.RaiseAnswerCallEvent(number, calledNumber, state);
         }
 
         public void AnswerCall(int number, int calledNumber, CallState state, Guid id)
         {
-            RaiseAnswerCallEvent(number, calledNumber, state, id);
+            this.RaiseAnswerCallEvent(number, calledNumber, state, id);
         }
     }
 }

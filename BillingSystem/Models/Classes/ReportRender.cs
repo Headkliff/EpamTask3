@@ -8,11 +8,6 @@ namespace BillingSystem.Models.Classes
 {
     public class ReportRender : IReportRender
     {
-        public ReportRender()
-        {
-
-        }
-
         public void Render(Report report)
         {
             foreach (var record in report.GetRecords())

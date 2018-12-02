@@ -10,8 +10,8 @@ namespace ATE.Events
 
         public EndCallEvent(Guid id, int number)
         {
-            Id = id;
-            TelephoneNumber = number;
+            this.Id = id;
+            this.TelephoneNumber = number;
         }
     }
 }

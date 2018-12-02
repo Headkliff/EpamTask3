@@ -1,9 +1,10 @@
 ﻿using System;
 using BillingSystem.Enums;
+using BillingSystem.Models.Interfaces;
 
 namespace BillingSystem.Models.Classes
 {
-    class Contract
+    public class Contract : IContract
     {
         static Random random = new Random();
 
