@@ -14,11 +14,12 @@ namespace ATE.Events
             this.CalledTelephoneNumber = target;
         }
 
-        public CallEvent(int number, int target, Guid id)
+        public CallEvent(Guid id, int number, int target)
         {
+            this.Id = id;
             this.TelephoneNumber = number;
             this.CalledTelephoneNumber = target;
-            this.Id = id;
+            
         }
     }
 }
