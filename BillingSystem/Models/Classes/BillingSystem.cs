@@ -16,9 +16,10 @@ namespace BillingSystem.Models.Classes
 
         public Report GetReport(int telephoneNumber)
         {
-            var calls = this._info.GetInfoList().
-                Where(x => x.MyNumber == telephoneNumber || x.CalledNumber == telephoneNumber).
-                ToList();
+            var calls = this._info.GetInfoList()
+                .Where(x => x.MyNumber == telephoneNumber || x.CalledNumber == telephoneNumber)
+                .ToList();
+
             var report = new Report();
 
             foreach (var call in calls)
