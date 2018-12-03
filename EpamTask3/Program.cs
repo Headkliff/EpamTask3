@@ -16,19 +16,22 @@
         {
             IATE ate = new ATE();
             IReportRender render = new ReportRender();
-            IBillingSystem bs = new BillingSystem(ate);
+            BillingSystem bs = new BillingSystem(ate);
 
-            IContract c1 = ate.RegisterContract(new Subscriber("Vasia", "Pupkin"), TariffType.Pro);
-            IContract c2 = ate.RegisterContract(new Subscriber("Dima", "Pupkin"), TariffType.Pro);
-            IContract c3 = ate.RegisterContract(new Subscriber("Petya", "Pupkin"), TariffType.Pro);
+            IContract c1 = ate.RegisterContract(new Subscriber("John", "Smith"), TariffType.Pro);
+            IContract c2 = ate.RegisterContract(new Subscriber("James", "Bond"), TariffType.Pro);
+            IContract c3 = ate.RegisterContract(new Subscriber("Jansen", "Born"), TariffType.Pro);
 
             c1.Subscriber.AddMoney(10);
+
             var t1 = ate.GetNewTerminal(c1);
             var t2 = ate.GetNewTerminal(c2);
             var t3 = ate.GetNewTerminal(c3);
+
             t1.ConnectToPort();
             t2.ConnectToPort();
             t3.ConnectToPort();
+
             t1.Call(t2.TelephoneNumber);
             Thread.Sleep(2000);
             t2.EndCall();
@@ -42,6 +45,8 @@
             t1.Disconnect();
             t2.Disconnect();
             t3.Disconnect();
+
+            t3.Call(t1.TelephoneNumber);
 
             Console.WriteLine();
             Console.WriteLine("Sorted records:");

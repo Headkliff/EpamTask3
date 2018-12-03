@@ -74,9 +74,11 @@ namespace ATE.Models.Classes
 
         protected virtual void RaiseAnswerToEvent(AnswerEvent eventArgs)
         {
-            this.AnswerEvent?.Invoke(this, new AnswerEvent(
-                eventArgs.Id,
-                eventArgs.TelephoneNumber,
+            this.AnswerEvent?.Invoke(
+                this,
+                new AnswerEvent(
+                    eventArgs.Id,
+                    eventArgs.TelephoneNumber,
                 eventArgs.CalledTelephoneNumber,
                 eventArgs.StateInCall));
         }

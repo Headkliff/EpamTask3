@@ -48,8 +48,8 @@ namespace ATE.Models.Classes
                 CallInfo inf = null;
                 Port targetPort;
                 Port port;
-                int number = 0;
-                int targetNumber = 0;
+                int number ;
+                int calledNumber;
                 if (e is EndCallEvent)
                 {
                     var callListFirst = this.callList.First(x => x.Id.Equals(e.Id));
@@ -58,13 +58,13 @@ namespace ATE.Models.Classes
                         targetPort = this.usersData[callListFirst.CalledNumber].Item1;
                         port = this.usersData[callListFirst.MyNumber].Item1;
                         number = callListFirst.MyNumber;
-                        targetNumber = callListFirst.CalledNumber;
+                        calledNumber = callListFirst.CalledNumber;
                     }
                     else
                     {
                         port = this.usersData[callListFirst.CalledNumber].Item1;
                         targetPort = this.usersData[callListFirst.MyNumber].Item1;
-                        targetNumber = callListFirst.MyNumber;
+                        calledNumber = callListFirst.MyNumber;
                         number = callListFirst.CalledNumber;
                     }
                 }
@@ -72,21 +72,21 @@ namespace ATE.Models.Classes
                 {
                     targetPort = this.usersData[e.CalledTelephoneNumber].Item1;
                     port = this.usersData[e.TelephoneNumber].Item1;
-                    targetNumber = e.CalledTelephoneNumber;
+                    calledNumber = e.CalledTelephoneNumber;
                     number = e.TelephoneNumber;
                 }
 
                 if (targetPort.State == PortState.Connect && port.State == PortState.Connect)
                 {
                     var tuple = this.usersData[number];
-                    var targetTuple = this.usersData[targetNumber];
+                    var targetTuple = this.usersData[calledNumber];
 
                     if (e is AnswerEvent answerArgs)
                     {
                         bool any = false;
-                        foreach (var x in this.callList)
+                        foreach (var item in this.callList)
                         {
-                            if (x.Id.Equals(answerArgs.Id))
+                            if (item.Id.Equals(answerArgs.Id))
                             {
                                 any = true;
                                 break;

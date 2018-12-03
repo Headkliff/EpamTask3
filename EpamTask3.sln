@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EpamTask3", "EpamTask3\EpamTask3.csproj", "{2FCD0563-68AC-4D7B-83F3-0AE7A5A2C14F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATE", "ATE\ATE.csproj", "{4EDED873-E225-4BE3-97BC-A74309DDF7A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EpamTask3.ATE", "ATE\EpamTask3.ATE.csproj", "{4EDED873-E225-4BE3-97BC-A74309DDF7A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingSystem", "BillingSystem\BillingSystem.csproj", "{E73652C7-4519-4B4B-ABEA-181BC4C25FD9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EpamTask3.BillingSystem", "BillingSystem\EpamTask3.BillingSystem.csproj", "{E73652C7-4519-4B4B-ABEA-181BC4C25FD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

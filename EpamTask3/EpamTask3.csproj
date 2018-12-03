@@ -50,13 +50,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ATE\ATE.csproj">
+    <ProjectReference Include="..\ATE\EpamTask3.ATE.csproj">
       <Project>{4EDED873-E225-4BE3-97BC-A74309DDF7A4}</Project>
-      <Name>ATE</Name>
+      <Name>EpamTask3.ATE</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BillingSystem\BillingSystem.csproj">
+    <ProjectReference Include="..\BillingSystem\EpamTask3.BillingSystem.csproj">
       <Project>{E73652C7-4519-4B4B-ABEA-181BC4C25FD9}</Project>
-      <Name>BillingSystem</Name>
+      <Name>EpamTask3.BillingSystem</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
